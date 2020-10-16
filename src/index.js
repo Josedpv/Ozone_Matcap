@@ -240,9 +240,9 @@ function main() {
 	
 	
 
-	engine= new ParticleEngine();
-	engine.setValues(Examples.fountain);
-	engine.initialize(scene);
+	//engine= new ParticleEngine();
+	//engine.setValues(Examples.fountain);
+	//engine.initialize(scene);
 	
 	addSkybox();
 	addGUI();
