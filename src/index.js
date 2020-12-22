@@ -176,7 +176,16 @@ function main() {
 	addLights();
 
 	
-    loadGLTFF('../client/model/gltf/GLTFMATCAP/scene.gltf', [-10,  0.001, 0], [0.5, 0.5, 0.5]).then(function(gltf){
+    loadGLTFF('../client/js/images/free_stylized_textures_tiles_with_sand/scene.gltf', [0,  12, 0], [0.05, 0.05, 0.05]).then(function(gltf){
+		console.log('termine gltf!');
+		mixerCap = new THREE.AnimationMixer( gltf.scene );
+		var action = mixerCap.clipAction( gltf.animations[ 0 ] );
+		action.play();
+		
+	}).catch(function (err) { 
+		console.log(err);
+	});
+	loadGLTFF('../client/js/images/a.i._angel/scene.gltf', [0,  12, 0], [0.05, 0.05, 0.05]).then(function(gltf){
 		console.log('termine gltf!');
 		mixerCap = new THREE.AnimationMixer( gltf.scene );
 		var action = mixerCap.clipAction( gltf.animations[ 0 ] );
@@ -184,16 +193,7 @@ function main() {
 		
 	}).catch(function (err) {
 		console.log(err);
-	});/*
-	loadGLTFF('../client/model/gltf/miguelangelo/scene.gltf', [10,  0.001, 0], [0.5, 0.5, 0.5]).then(function(gltf){
-		console.log('termine gltf!');
-		mixerCap = new THREE.AnimationMixer( gltf.scene );
-		var action = mixerCap.clipAction( gltf.animations[ 0 ] );
-		action.play();
-		
-	}).catch(function (err) {
-		console.log(err);
-	});*/
+	});
     
         var floorTexture = new THREE.TextureLoader().load( '../client/js/images/checkerboard.jpg' )
 	floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping; 
@@ -311,8 +311,8 @@ function loadGLTFF(path, pos,scale) {
 					}
 					if(child instanceof THREE.Mesh){
 						
-						child.material.emissive ;
-						child.material.emissiveIntensity ;console.log(child.material);
+						//child.material.emissive ;
+						//child.material.emissiveIntensity ;console.log(child.material);
 					
 					}childdd=child;
 				} );
